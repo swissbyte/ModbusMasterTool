@@ -76,9 +76,16 @@ namespace ModbusMaster
 
         private void button2_Click(object sender, EventArgs e)
         {
-            master.WriteCoil(byte.Parse(textSlaveID.Text), ushort.Parse(textRegisterToWrite.Text), Convert.ToBoolean(ushort.Parse(textValueToSend.Text)));
+            try
+            {
+                master.WriteRegister(byte.Parse(textSlaveID.Text), ushort.Parse(textRegisterToWrite.Text), ushort.Parse(textValueToSend.Text));
+            }
+            catch (Exception ex)
+            {
+                listBox1.Items.Add(ex.Message);
+            }
+            listBox1.TopIndex = listBox1.Items.Count - 1;
         }
-
         private void textValueToSend_TextChanged(object sender, EventArgs e)
         {
             if (textValueToSend.Text.Length > 0)
@@ -90,6 +97,49 @@ namespace ModbusMaster
             }
             else textValueToSend.Text = "0";
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string data = "";
+            try
+            {
+                data = Convert.ToString(master.ReadInputRegister(byte.Parse(textSlaveID.Text), ushort.Parse(textRegisterToWrite.Text)));
+            }
+            catch (Exception ex)
+            {
+                listBox1.Items.Add(ex.Message);
+            }
+            listBox1.Items.Add("Addr: " + textRegisterToWrite.Text+  " Val: " + data);
+            listBox1.TopIndex = listBox1.Items.Count - 1;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string data = "";
+            try
+            {
+                data = Convert.ToString(master.ReadCoil(byte.Parse(textCoilSlaveID.Text), ushort.Parse(textCoilAddress.Text)));
+            }
+            catch (Exception ex)
+            {
+                listBox1.Items.Add(ex.Message);
+            }
+            listBox1.Items.Add("Addr: " + textCoilAddress.Text + " Val: " + data);
+            listBox1.TopIndex = listBox1.Items.Count - 1;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                master.WriteCoil(byte.Parse(textCoilSlaveID.Text), ushort.Parse(textCoilAddress.Text), checkCoilState.Checked);
+            }
+            catch (Exception ex)
+            {
+                listBox1.Items.Add(ex.Message);
+            }
+            listBox1.TopIndex = listBox1.Items.Count - 1;
         }
     }
 }

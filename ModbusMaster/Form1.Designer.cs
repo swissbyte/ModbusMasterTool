@@ -48,8 +48,19 @@
             this.textSlaveID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.checkCoilState = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textCoilAddress = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textCoilSlaveID = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -153,6 +164,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.checkBoolValue);
             this.groupBox2.Controls.Add(this.textValueToSend);
@@ -166,7 +178,7 @@
             this.groupBox2.Size = new System.Drawing.Size(232, 176);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Send Data FC5";
+            this.groupBox2.Text = "Register";
             // 
             // button2
             // 
@@ -213,7 +225,7 @@
             this.textRegisterToWrite.Name = "textRegisterToWrite";
             this.textRegisterToWrite.Size = new System.Drawing.Size(120, 22);
             this.textRegisterToWrite.TabIndex = 5;
-            this.textRegisterToWrite.Text = "1";
+            this.textRegisterToWrite.Text = "1010";
             // 
             // label5
             // 
@@ -247,14 +259,116 @@
             this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(8, 200);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(496, 132);
+            this.listBox1.ScrollAlwaysVisible = true;
+            this.listBox1.Size = new System.Drawing.Size(736, 132);
             this.listBox1.TabIndex = 3;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(0, 136);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(96, 32);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "Read";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button4);
+            this.groupBox3.Controls.Add(this.button5);
+            this.groupBox3.Controls.Add(this.checkCoilState);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.textCoilAddress);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.textCoilSlaveID);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Location = new System.Drawing.Point(512, 16);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(232, 176);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Coil";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(0, 136);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(96, 32);
+            this.button4.TabIndex = 9;
+            this.button4.Text = "Read";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(104, 136);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(120, 32);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "Write";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // checkCoilState
+            // 
+            this.checkCoilState.AutoSize = true;
+            this.checkCoilState.Location = new System.Drawing.Point(102, 85);
+            this.checkCoilState.Name = "checkCoilState";
+            this.checkCoilState.Size = new System.Drawing.Size(84, 21);
+            this.checkCoilState.TabIndex = 8;
+            this.checkCoilState.Text = "coilState";
+            this.checkCoilState.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 84);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 17);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Value";
+            // 
+            // textCoilAddress
+            // 
+            this.textCoilAddress.Location = new System.Drawing.Point(101, 48);
+            this.textCoilAddress.Name = "textCoilAddress";
+            this.textCoilAddress.Size = new System.Drawing.Size(120, 22);
+            this.textCoilAddress.TabIndex = 5;
+            this.textCoilAddress.Text = "1010";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(16, 50);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(31, 17);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Coil";
+            // 
+            // textCoilSlaveID
+            // 
+            this.textCoilSlaveID.Location = new System.Drawing.Point(101, 22);
+            this.textCoilSlaveID.Name = "textCoilSlaveID";
+            this.textCoilSlaveID.Size = new System.Drawing.Size(120, 22);
+            this.textCoilSlaveID.TabIndex = 3;
+            this.textCoilSlaveID.Text = "1";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(16, 24);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 17);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Slave ID";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 343);
+            this.ClientSize = new System.Drawing.Size(753, 343);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -265,6 +379,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -290,6 +406,16 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.CheckBox checkCoilState;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textCoilAddress;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textCoilSlaveID;
+        private System.Windows.Forms.Label label9;
     }
 }
 
