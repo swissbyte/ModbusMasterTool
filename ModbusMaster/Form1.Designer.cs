@@ -39,6 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboAvailablePorts = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.checkBoolValue = new System.Windows.Forms.CheckBox();
             this.textValueToSend = new System.Windows.Forms.TextBox();
@@ -47,8 +48,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textSlaveID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.logBox = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -58,6 +58,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textCoilSlaveID = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.scriptBox = new System.Windows.Forms.ListBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textScriptLine = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.button8 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -180,6 +189,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Register";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(0, 136);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(96, 32);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "Read";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(104, 136);
@@ -253,25 +272,16 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Slave ID";
             // 
-            // listBox1
+            // logBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(8, 200);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(736, 132);
-            this.listBox1.TabIndex = 3;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(0, 136);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(96, 32);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Read";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.logBox.BackColor = System.Drawing.SystemColors.Window;
+            this.logBox.FormattingEnabled = true;
+            this.logBox.ItemHeight = 16;
+            this.logBox.Location = new System.Drawing.Point(8, 196);
+            this.logBox.Name = "logBox";
+            this.logBox.ScrollAlwaysVisible = true;
+            this.logBox.Size = new System.Drawing.Size(736, 180);
+            this.logBox.TabIndex = 3;
             // 
             // groupBox3
             // 
@@ -363,17 +373,105 @@
             this.label9.TabIndex = 2;
             this.label9.Text = "Slave ID";
             // 
+            // scriptBox
+            // 
+            this.scriptBox.FormattingEnabled = true;
+            this.scriptBox.ItemHeight = 16;
+            this.scriptBox.Location = new System.Drawing.Point(760, 56);
+            this.scriptBox.Name = "scriptBox";
+            this.scriptBox.ScrollAlwaysVisible = true;
+            this.scriptBox.Size = new System.Drawing.Size(344, 228);
+            this.scriptBox.TabIndex = 5;
+            this.scriptBox.SelectedIndexChanged += new System.EventHandler(this.scriptBox_SelectedIndexChanged);
+            this.scriptBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.scriptBox_KeyDown);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(760, 336);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(168, 32);
+            this.button6.TabIndex = 6;
+            this.button6.Text = "Execute";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(760, 24);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(48, 17);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Script:";
+            // 
+            // textScriptLine
+            // 
+            this.textScriptLine.Location = new System.Drawing.Point(832, 288);
+            this.textScriptLine.Name = "textScriptLine";
+            this.textScriptLine.Size = new System.Drawing.Size(272, 22);
+            this.textScriptLine.TabIndex = 9;
+            this.textScriptLine.TextChanged += new System.EventHandler(this.textScriptLine_TextChanged);
+            this.textScriptLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(760, 291);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(62, 17);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "NewLine";
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(936, 336);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 32);
+            this.button7.TabIndex = 11;
+            this.button7.Text = "save";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "txt";
+            this.saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(1016, 336);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 32);
+            this.button8.TabIndex = 12;
+            this.button8.Text = "load";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.DefaultExt = "txt";
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(753, 343);
+            this.ClientSize = new System.Drawing.Size(1114, 387);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.textScriptLine);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.scriptBox);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.logBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "ModBus Master Tool";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -382,6 +480,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -405,7 +504,7 @@
         private System.Windows.Forms.TextBox textSlaveID;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox logBox;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button4;
@@ -416,6 +515,15 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textCoilSlaveID;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ListBox scriptBox;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textScriptLine;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
